@@ -1,0 +1,273 @@
+/* style.css
+   SNAELAND — elegant CSS with a luxurious theme for Icelandic travel
+   Save as style.css and ensure HTML pages link to it: <link rel="stylesheet" href="style.css">
+*/
+
+/* -------------------------
+   Theme variables
+   ------------------------- */
+:root{
+  --bg: #f8f8f8;
+  --paper: #ffffff;
+  --ink: #081424;
+  --muted: #5c5c5c;
+  --accent: #2e4a66;        /* deep slate blue */
+  --accent-2: #b89b72;      /* muted gold */
+  --card-shadow: 0 10px 30px rgba(8,20,36,0.08);
+  --glass: rgba(255,255,255,0.7);
+  --radius-lg: 20px;
+  --radius-md: 15px;
+  --container-w: 1180px;
+  --g: 1.25rem;
+  font-family: Lora, "Times New Roman", serif;
+  color-scheme: light;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* -------------------------
+   Reset & base
+   ------------------------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg, #e8ecef 0%, var(--bg) 60%);
+  color:var(--ink);
+  font-size:17px;
+  line-height:1.5;
+}
+
+/* Container */
+.container{
+  width: calc(100% - 2rem);
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* -------------------------
+   Header / Nav
+   ------------------------- */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(7,18,36,0.03);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--g);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+  text-decoration:none;
+  color:var(--ink);
+}
+.logo{
+  width:60px;height:60px;border-radius:15px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:white;font-weight:700;font-size:24px;display:grid;place-items:center;
+  box-shadow: var(--card-shadow);
+}
+.brand-text small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.main-nav{display:flex;gap:1rem;align-items:center}
+.main-nav a{
+  text-decoration:none;color:var(--ink);padding:0.6rem 0.7rem;border-radius:10px;font-weight:500;
+  transition: background .2s, color .2s, transform .15s;
+}
+.main-nav a:hover{background:var(--glass);transform:scale(1.05)}
+.main-nav a.active{
+  color:var(--accent-2);
+  background: linear-gradient(90deg, rgba(184,155,114,0.05), rgba(46,74,102,0.03));
+  box-shadow: 0 6px 20px rgba(46,74,102,0.05);
+}
+
+/* -------------------------
+   Hero (left text / right image)
+   ------------------------- */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 520px;
+  gap:2rem;
+  align-items:center;
+  padding:2.5rem 0;
+}
+.hero-left h1{
+  margin:0 0 0.6rem 0;
+  font-size:clamp(2rem, 3.8vw, 2.8rem);
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  color:var(--ink);
+}
+.lead{color:var(--muted);margin-top:0.6rem;font-weight:500}
+.hero-cta{margin-top:1.5rem;display:flex;gap:0.8rem;flex-wrap:wrap}
+
+/* hero image container */
+.hero-right{
+  border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow: var(--card-shadow);
+}
+.hero-right img{width:100%;max-height:480px;object-fit:cover;display:block}
+
+/* Button utilities */
+.btn{
+  display:inline-block;padding:0.9rem 1.3rem;border-radius:12px;font-weight:600;text-decoration:none;
+  border:0;cursor:pointer;font-size:1rem;
+  transition: transform .2s;
+}
+.btn:hover{transform:scale(1.05)}
+.btn.primary{background:linear-gradient(90deg, var(--accent), var(--accent-2));color:white;box-shadow:0 12px 30px rgba(46,74,102,0.1)}
+.btn.ghost{background:transparent;border:1px solid rgba(7,18,36,0.05);color:var(--ink)}
+.btn.outline{background:transparent;border:2px solid rgba(46,74,102,0.1);padding:0.8rem 1.2rem}
+
+/* -------------------------
+   Stats row
+   ------------------------- */
+.stats{
+  display:flex;
+  gap:1.2rem;
+  margin-top:1rem;
+  align-items:center;
+  justify-content:flex-start;
+}
+.stat{
+  background:linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.92));
+  padding:1rem 1.2rem;border-radius:15px;box-shadow:var(--card-shadow);min-width:130px;text-align:center;
+}
+.stat h3{margin:0;font-size:1.4rem;color:var(--accent-2)}
+.stat p{margin:0;color:var(--muted);font-weight:600}
+
+/* -------------------------
+   Sections
+   ------------------------- */
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:1.2rem;margin:2.5rem 0 1.2rem}
+.section-head h2{margin:0;font-size:1.5rem;color:var(--ink)}
+.section-head .subtitle{color:var(--muted);font-weight:500}
+
+/* Story / Intro */
+.story p{max-width:70ch;color:var(--muted);margin-top:0.7rem;font-size:1.05rem}
+
+/* -------------------------
+   Cards (featured destinations & generic cards)
+   ------------------------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.2rem}
+.card{
+  background:var(--paper);
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 20px 60px rgba(8,20,36,0.1)}
+.card img{width:100%;height:230px;object-fit:cover;display:block}
+.card-body{padding:1.2rem}
+.card-body h3{margin:0 0 0.5rem 0}
+.card-body p{margin:0;color:var(--muted);font-size:1rem}
+
+/* -------------------------
+   Gallery preview
+   ------------------------- */
+.gallery-preview .gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0.7rem;
+  margin-top:1.2rem;
+}
+.gallery-grid img{width:100%;height:170px;object-fit:cover;border-radius:10px;display:block}
+
+/* -------------------------
+   Destinations list (single column entries)
+   ------------------------- */
+.dest-list{display:grid;gap:1.3rem;margin-top:1.2rem}
+.dest{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:1.2rem;
+  align-items:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.99), rgba(255,255,255,0.96));
+  padding:0.7rem;border-radius:15px;box-shadow:var(--card-shadow);
+}
+.dest img{width:100%;height:330px;object-fit:cover;border-radius:12px}
+.dest-body{padding:0.7rem}
+.dest-body h2{margin:0 0 0.5rem 0}
+.dest-body p{color:var(--muted)}
+
+/* -------------------------
+   Packages list
+   ------------------------- */
+.packages-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.2rem;
+  margin-top:1.2rem;
+}
+.package-card{
+  display:flex;gap:1.2rem;align-items:stretch;background:var(--paper);border-radius:15px;overflow:hidden;box-shadow:var(--card-shadow);
+}
+.package-card img{width:330px;height:100%;object-fit:cover;display:block}
+.pkg-body{padding:1.2rem;flex:1}
+.pkg-body h3{margin:0 0 0.5rem 0}
+.pkg-body p{color:var(--muted);margin-bottom:0.9rem}
+
+/* -------------------------
+   Gallery grid page
+   ------------------------- */
+.photo-grid .grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0.7rem;
+}
+.photo-grid .grid img{width:100%;height:250px;object-fit:cover;border-radius:10px}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+.site-footer{
+  margin-top:3rem;
+  background: linear-gradient(180deg, rgba(7,18,36,0.01), rgba(7,18,36,0.005));
+  border-top:1px solid rgba(7,18,36,0.03);
+  padding:1.5rem 0 2.5rem;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:1.2rem;align-items:flex-start}
+.footer-inner strong{font-size:1.1rem}
+.site-legal{padding:1rem 0 0;text-align:left;color:var(--muted);font-size:0.95rem}
+
+/* -------------------------
+   Utilities & small screens
+   ------------------------- */
+.center{text-align:center}
+.text-muted{color:var(--muted)}
+
+@media (max-width:1100px){
+  .hero{grid-template-columns: 1fr 420px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .packages-list{grid-template-columns:1fr}
+}
+
+@media (max-width:780px){
+  .nav-inner{flex-direction:column;align-items:stretch;gap:0.7rem}
+  .main-nav{order:2;justify-content:center;flex-wrap:wrap}
+  .hero{grid-template-columns:1fr;gap:1.2rem;padding:1.5rem 0}
+  .hero-right{order:-1}
+  .cards{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .dest{grid-template-columns:1fr;grid-auto-rows:auto}
+  .photo-grid .grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:420px){
+  .hero-left h1{font-size:1.5rem}
+  .hero-right img{max-height:240px;object-fit:cover}
+  .gallery-grid img, .photo-grid .grid img{height:150px}
+}
+
+/* Focus / accessibility */
+a:focus, button:focus, input:focus{outline: 3px solid rgba(46,74,102,0.1);outline-offset:3px}
